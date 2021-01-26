@@ -11,19 +11,19 @@ public class LoginpageTest extends BaseTest {
 	
 	@Test(priority =1)
 	public void verifyLoginPageTitleTest() {
-		String title = loginpage.getLoginpageTitle();
+		String title = loginPage.getLoginpageTitle();
 		System.out.println("the title of the page is " + title);
 		Assert.assertEquals(title, Constants.LOGIN_PAGE_TITLE);
 	}
 	
 	@Test(priority = 2)
 	public void verifyForgotPwdlinkTest() {
-		Assert.assertTrue(loginpage.isForgotPasswordLinkExist());
+		Assert.assertTrue(loginPage.isForgotPasswordLinkExist());
 	}
 	
 	@Test(priority = 3)
 	public void loginTest() {
-		loginpage.doLogin(prop.getProperty("username"), prop.getProperty("password"
+		loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"
 				+ ""));
 	}
 	

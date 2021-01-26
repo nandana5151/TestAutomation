@@ -7,6 +7,7 @@ import com.qa.democart.utilis.Constants;
 import com.qa.democart.utilis.ElementUtil;
 
 public class LoginPage {
+	private WebDriver driver;
 	private ElementUtil elementUtil;
 		
 	//page by locators or Page Object Repoistory
@@ -20,6 +21,7 @@ public class LoginPage {
 	
 	//page class constructors
 	public LoginPage(WebDriver driver) {
+		this.driver = driver;
 	  elementUtil = new ElementUtil(driver);
 	}
 	
@@ -35,13 +37,14 @@ public class LoginPage {
 		return false;
 	}
 	
-	public void doLogin(String un, String pwd) {
+	public AccountsPage doLogin(String un, String pwd) {
 		System.out.println("login with username " +un + "and password "+ pwd);
 		
 		elementUtil.doSendKeys(emailid, un);
 		elementUtil.doSendKeys(password, pwd);
 		elementUtil.doClick(loginBtn);
 		
+		return new AccountsPage(driver);
 	}
 	
 }
